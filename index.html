@@ -1,15 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
-    <script src="valids.js"></script>
+    <title>Final LPPA - Wordle</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1 class="title">2022 - FINAL - LPPA</h1>
+        <div id="buttons">
+            <button id="new-game" class="button-nav">Jugar</button>
+            <button id="save-game" class="button-nav">Guardar Partida</button>
+            <button id="load-game" class="button-nav">Cargar Partida </button>
+            <button id="ranking-gmae" class="button-nav">Ranking</button>
+            <button id="contact" class="button-nav"><a href="contact.html">Contáctenos</a></button>
+        </div>
+        <form name="form" id="form-user">
+            <div id="name-player">
+                <label id="name-player" for="name">Ingrese su nombre:</label>
+                <input type="text" name="name-player" id="name-player-input">
+                <p id="errorName"></p>
+            </div>
+        </form>
+        <div id="message-result"></div>
+        </div>
+    </header>
+    <main>
+        <form id="grid">
+            <fieldset id="fila0" class="fieldset-wordle">
+                <input id="f0c0" class="input-wordle" maxlength="1" />
+                <input id="f0c1" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f0c1.value == '') f0c0.focus()" />
+                <input id="f0c2" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f0c2.value == '') f0c1.focus()" />
+                <input id="f0c3" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f0c3.value == '') f0c2.focus()" />
+                <input id="f0c4" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f0c4.value == '') f0c3.focus()" />
+            </fieldset>
+            <fieldset id="fila1" class="fieldset-wordle">
+                <input id="f1c0" class="input-wordle" maxlength="1" />
+                <input id="f1c1" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f1c1.value == '') f1c0.focus()" />
+                <input id="f1c2" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f1c2.value == '') f1c1.focus()" />
+                <input id="f1c3" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f1c3.value == '') f1c2.focus()" />
+                <input id="f1c4" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f1c4.value == '') f1c3.focus()" />
+            </fieldset>
+            <fieldset id="fila2" class="fieldset-wordle">
+                <input id="f2c0" class="input-wordle" maxlength="1" />
+                <input id="f2c1" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f2c1.value == '') f2c0.focus()" />
+                <input id="f2c2" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f2c2.value == '') f2c1.focus()" />
+                <input id="f2c3" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f2c3.value == '') f2c2.focus()" />
+                <input id="f2c4" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f2c4.value == '') f2c3.focus()" />
+            </fieldset>
+            <fieldset id="fila3" class="fieldset-wordle">
+                <input id="f3c0" class="input-wordle" maxlength="1" />
+                <input id="f3c1" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f3c1.value == '') f3c0.focus()" />
+                <input id="f3c2" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f3c2.value == '') f3c1.focus()" />
+                <input id="f3c3" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f3c3.value == '') f3c2.focus()" />
+                <input id="f3c4" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f3c4.value == '') f3c3.focus()" />
+            </fieldset>
+            <fieldset id="fila4" class="fieldset-wordle">
+                <input id="f4c0" class="input-wordle" maxlength="1" />
+                <input id="f4c1" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f4c1.value == '') f4c0.focus()" />
+                <input id="f4c2" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f4c2.value == '') f4c1.focus()" />
+                <input id="f4c3" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f4c3.value == '') f4c2.focus()" />
+                <input id="f4c4" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f4c4.value == '') f4c3.focus()" />
+            </fieldset>
+            <fieldset id="fila5" class="fieldset-wordle">
+                <input id="f5c0" class="input-wordle" maxlength="1" />
+                <input id="f5c1" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f5c1.value == '') f5c0.focus()" />
+                <input id="f5c2" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f5c2.value == '') f5c1.focus()" />
+                <input id="f5c3" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f5c3.value == '') f5c2.focus()" />
+                <input id="f5c4" class="input-wordle" maxlength="1"
+                    onkeydown="if (event.key === `Backspace` && f5c4.value == '') f5c3.focus()" />
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <div class="footer">
+            <p>Link a repo GitHub <a href="https://github.com/joaquin8123/wordle" target="_blank">aquí</a></p>
+            <p>UAI - LPPA - SUAREZ JOAQUIN</p>
+        </div>
+    </footer>
 </body>
 </html>
