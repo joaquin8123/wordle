@@ -2300,7 +2300,7 @@ window.onload = function () {
   inputsForm.forEach(function (x) {
     x.addEventListener("keyup", tabular);
   })
-
+  document.getElementById("volver-jugar-partida").style.display = "none";
   const nuevaPartida = document.getElementById("nueva-partida");
   const volverAJugar = document.getElementById("volver-jugar-partida");
   const gurdarPartida = document.getElementById("guardar-partida");
