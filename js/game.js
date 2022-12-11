@@ -148,7 +148,6 @@ function ObtenerGuardadas() {
                     <td class="data-partida-guardadas" data-label="FECHA">${(savesArray[i].fecha)}</td>
                 </tr>`
   }
-  console.log(savesArray.length)
   document.getElementById("puntajes").innerHTML = body;
 }
 
@@ -215,7 +214,6 @@ const loadGame = function (i) {
   }
 
   function revisaResulPartidaCargada(respuesta, i) {
-    console.log('revisaResulPartidaCargada')
     respuesta.forEach(function (elemento, index) {
       if (elemento.toLowerCase() === arrayActualPalabra[index]) {
         tablaColores[i][index] = colores.VERDE;
@@ -278,9 +276,6 @@ const loadGame = function (i) {
 
           let respuestaUsuario = respuestas[i];
           let respuestaUsuarioString = respuestaUsuario.join("").toLowerCase();
-
-          console.log('respuestaUsuarioString', respuestaUsuarioString)
-          console.log('palabraGanadora', palabraGanadora)
           
           if (respuestaUsuarioString == palabraGanadora) {
             gameOver = true;
@@ -435,7 +430,6 @@ function inicio() {
   for (let i = 0; i < 6; i++) {
     let fieldset = document.getElementById(`fila${i}`);
     fieldset.onkeydown = function (event) {
-      console.log('onkeydown');
       if (event.key === `Enter`) {
         let validaLetra = document.querySelectorAll(`#fila${i} input`);
         let valor0 = validaLetra[0].value;
@@ -510,7 +504,6 @@ function guardaResp(i) {
 // Setear tabla de colores
 function setTablaColores(respuesta, i) {
   respuesta.forEach(function (elemento, index) {
-    console.log('elemento', elemento.toLowerCase())
     if (elemento.toLowerCase() === arrayPalabraGanadora[index]) {
       tablaColores[i][index] = colores.VERDE;
     }
