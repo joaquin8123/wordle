@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">  
+    <script src="./js/contacto.js"></script>
+  <title>Final LPPA - Wordle</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="titulo">2022 - UAI - LPPA</h1>
+      <div id="buttons">
+        <button id="contactanos" class="button-nav"><a href="index.html">Wordle</a></button>
+      </div>
+      <form name="formulario" id="formulario-usuario">
+          <div id="nombre-jugador">
+              <input type="text" name="nombre-jugador" id="nombre-jugador-input">
+              <p id="errorNombre"></p>
+          </div>
+      </form>
+    </header>
+    <main>
+      <form id="form">
+          <fieldset class="fieldset-contacto">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" class="formulario-clase" type="text" name="nombre" required>
+              <p class="red errorNombre" id="errorNombre"></p>
+              <p></p>
+          </fieldset>
+          <fieldset class="fieldset-contacto">
+              <label for="correo">Email</label>
+              <input id="correo" class="formulario-clase" type="email" name="correo" required>
+              <p class="red errorMail" id="errorMail"></p>
+              <p></p>
+          </fieldset>
+          <fieldset class="fieldset-contacto">
+              <label for="mensaje">Comentario</label>
+              <textarea id="mensaje" class="formulario-clase" name="mensaje" rows="5" cols="50" minlength="5" required></textarea>
+              <p class="red errorMensaje" id="errorMensaje"></p>
+              <p></p>
+          </fieldset>
+          <fieldset class="fieldset-contacto">
+              <input id="submit" class="enviar-form btn btn-primary" type="submit" value="Enviar">
+          </fieldset>
+      </form>
+    </main>
+    <footer>
+      <div class="footer">
+        <p><a href="https://github.com/joaquin8123/wordle" target="_blank">Repositorio del Proyecto</a></p>
+        <p>UAI - INGENIERIA EN SISTEMAS DE INFORMACION - LPPA - SUAREZ JOAQUIN</p>
+      </div>
+    </footer>
+  </body>
+</html>
+  
