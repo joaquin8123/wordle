@@ -21,3 +21,6 @@ enviar se abra la herramienta de envío de emails predeterminada del sistema ope
 - Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas.
 - Agregar la opción de ordenar la lista de partidas por fecha o puntaje.
 - Agregar un link a la página de Github donde se alojó el código del juego, que al apretarlo se abre en una nueva pestaña
+
+
+# URL: https://joaquin8123.github.io/wordle/
