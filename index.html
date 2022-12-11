@@ -5,32 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./js/game.js"></script>
     <title>Final LPPA - Wordle</title>
 </head>
 
 <body>
     <header>
-        <h1 class="title">2022 - FINAL - LPPA</h1>
+        <h1 class="titulo">2022 - UAI - LPPA</h1>
         <div id="buttons">
-            <button id="new-game" class="button-nav">Jugar</button>
-            <button id="save-game" class="button-nav">Guardar Partida</button>
-            <button id="load-game" class="button-nav">Cargar Partida </button>
-            <button id="ranking-gmae" class="button-nav">Ranking</button>
-            <button id="contact" class="button-nav"><a href="contact.html">Contáctenos</a></button>
+            <button id="nueva-partida" class="button-nav">Jugar</button>
+            <button id="guardar-partida" class="button-nav">Guardar Partida</button>
+            <button id="cargar-partida" class="button-nav">Cargar Partida </button>
+            <button id="volver-jugar-partida" class="button-nav">Jugar de nuevo</button>
+            <button id="ranking-partida" class="button-nav">Ranking</button>
+            <button id="contacto" class="button-nav"><a href="contacto.html">Contacto</a></button>
         </div>
-        <form name="form" id="form-user">
-            <div id="name-player">
-                <label id="name-player" for="name">Ingrese su nombre:</label>
-                <input type="text" name="name-player" id="name-player-input">
-                <p id="errorName"></p>
+        <form name="formulario" id="formulario-usuario">
+            <div id="nombre-jugador">
+                <label id="nombre-jugador-label" for="nombre">Ingrese su nombre:</label>
+                <input type="text" name="nombre-jugador" id="nombre-jugador-input">
+                <p id="errorNombre"></p>
             </div>
         </form>
-        <div id="message-result"></div>
+        <div id="timer">Tenes <span id="time">05:00</span> minutos para resolver.</div>
+        <div id="mensaje-resultado"></div>
         </div>
     </header>
     <main>
-        <form id="grid">
-            <fieldset id="fila0" class="fieldset-wordle">
+        <form id="grilla">
+            <fieldset id="fila0" class="fieldset-wordle" disabled>
                 <input id="f0c0" class="input-wordle" maxlength="1" />
                 <input id="f0c1" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f0c1.value == '') f0c0.focus()" />
@@ -41,7 +46,7 @@
                 <input id="f0c4" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f0c4.value == '') f0c3.focus()" />
             </fieldset>
-            <fieldset id="fila1" class="fieldset-wordle">
+            <fieldset id="fila1" class="fieldset-wordle" disabled>
                 <input id="f1c0" class="input-wordle" maxlength="1" />
                 <input id="f1c1" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f1c1.value == '') f1c0.focus()" />
@@ -52,7 +57,7 @@
                 <input id="f1c4" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f1c4.value == '') f1c3.focus()" />
             </fieldset>
-            <fieldset id="fila2" class="fieldset-wordle">
+            <fieldset id="fila2" class="fieldset-wordle" disabled>
                 <input id="f2c0" class="input-wordle" maxlength="1" />
                 <input id="f2c1" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f2c1.value == '') f2c0.focus()" />
@@ -63,7 +68,7 @@
                 <input id="f2c4" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f2c4.value == '') f2c3.focus()" />
             </fieldset>
-            <fieldset id="fila3" class="fieldset-wordle">
+            <fieldset id="fila3" class="fieldset-wordle" disabled>
                 <input id="f3c0" class="input-wordle" maxlength="1" />
                 <input id="f3c1" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f3c1.value == '') f3c0.focus()" />
@@ -74,7 +79,7 @@
                 <input id="f3c4" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f3c4.value == '') f3c3.focus()" />
             </fieldset>
-            <fieldset id="fila4" class="fieldset-wordle">
+            <fieldset id="fila4" class="fieldset-wordle" disabled>
                 <input id="f4c0" class="input-wordle" maxlength="1" />
                 <input id="f4c1" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f4c1.value == '') f4c0.focus()" />
@@ -85,7 +90,7 @@
                 <input id="f4c4" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f4c4.value == '') f4c3.focus()" />
             </fieldset>
-            <fieldset id="fila5" class="fieldset-wordle">
+            <fieldset id="fila5" class="fieldset-wordle" disabled>
                 <input id="f5c0" class="input-wordle" maxlength="1" />
                 <input id="f5c1" class="input-wordle" maxlength="1"
                     onkeydown="if (event.key === `Backspace` && f5c1.value == '') f5c0.focus()" />
@@ -98,11 +103,35 @@
             </fieldset>
         </form>
     </main>
+    <!-- Modal -->
+    <div id="modalPartidas" class="modal">
+        <div class="modal_content">
+            <p class="modal_message">Partidas</p>
+            <div id="table-wrapper">
+                <div id="table-scroll">
+                    <table id="tabla">
+                        <thead>
+                            <tr>
+                                <th id="numero-partida">ID Partida</th>
+                                <th>Nombre Usuario</th>
+                                <th id="orden-por-fecha">Fecha</th>
+                                <th id="orden-por-puntaje">Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="puntajes">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="modal_close" id="close">ATRAS</p>
+        </div>
+    </div>
     <footer>
         <div class="footer">
-            <p>Link a repo GitHub <a href="https://github.com/joaquin8123/wordle" target="_blank">aquí</a></p>
-            <p>UAI - LPPA - SUAREZ JOAQUIN</p>
+            <p><a href="https://github.com/joaquin8123/wordle" target="_blank">Repositorio del Proyecto</a></p>
+            <p>UAI - INGENIERIA EN SISTEMAS DE INFORMACION - LPPA - SUAREZ JOAQUIN</p>
         </div>
     </footer>
 </body>
+
 </html>
