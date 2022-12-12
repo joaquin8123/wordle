@@ -195,7 +195,7 @@ const loadGame = function (i) {
   hideBtn();
 
   //Calculos varios tiempo
-  let sec = actualTiempo.slice(5);
+  let sec = actualTiempo.slice(3,5);
   let min = actualTiempo.slice(0, 2);
   let secTransform = Math.round((sec / 60) * 100);
   let calculoTiempo = Math.round(((min + secTransform) / 100) * 60);
@@ -755,10 +755,10 @@ function startTimer(duration, display) {
     }
 
     if (--timer < 0) {
-      gameOver = true;
+      gameOver = true; 
       timer = duration;
       showBtn();
-      document.getElementById("mensaje-resultado").innerHTML = `Termnó el tiempo`;
+      document.getElementById("mensaje-resultado").innerHTML = `Terminó el tiempo`;
       bloqueoFieldset();
     }
   }, 1000);
